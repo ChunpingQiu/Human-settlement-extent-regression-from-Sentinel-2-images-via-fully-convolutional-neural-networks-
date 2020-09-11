@@ -8,11 +8,6 @@
 - HSE regression in unseen area
 - mtl
 -->
-
-## datasets
-- HSE reference: https://drive.google.com/drive/folders/1n2LGeGAv_O2cvxAJnSGNRUI4FMsm4psa?usp=sharing
-- (small) sample data: mtl_SampleData, https://drive.google.com/drive/folders/15Q63JR4X4wT9TBUZQxsc5eEjVlYYygeX?usp=sharing
-
 ## Folder Structure
   ```
   pytorch-template/
@@ -51,13 +46,19 @@
 - define/setup models in modelS_hse.py: `CUDA_VISIBLE_DEVICES=0 python plotModel.py`
 - train models of different setups: `CUDA_VISIBLE_DEVICES=N python train_hse.py --methods4test sen2mt_net_Loss_mae sen2mt_net_Loss_mse --folderData './mtl_SampleData/patches/' --saveFolder './results/'`
 - test the trained models: `CUDA_VISIBLE_DEVICES=N python test_hse.py --methods4test sen2mt_net_Loss_mae sen2mt_net_Loss_mse --folderData './mtl_SampleData/patches/test/' --modelPath './results/'`
+
 [//]: # (- predictions from tif files:)
+
 [//]: # (### Investigations on LCZ classification task)
 
 ### Investigations on MTL
 - define/setup models in modelS.py `CUDA_VISIBLE_DEVICES=0 python plotModel.py`
 - `CUDA_VISIBLE_DEVICES=N python train.py --methods4test w_learned --folderData './mtl_SampleData/patches/' --saveFolder './results/'`
 - predictions from tif files: `CUDA_VISIBLE_DEVICES=0 python img2map.py --methods4test w_learned --modelPath './results/' --tifFile './mtl_SampleData_tif/henan_2017_sentinel_22.tif' --modelWeights "weights.best_lcz"`
+
+## datasets
+- HSE reference: https://drive.google.com/drive/folders/1n2LGeGAv_O2cvxAJnSGNRUI4FMsm4psa?usp=sharing
+- (small) sample data (part of the data used in the paper): mtl_SampleData, https://drive.google.com/drive/folders/15Q63JR4X4wT9TBUZQxsc5eEjVlYYygeX?usp=sharing
 
 ## td list
 - [ ] visualize predictions with gee (currently the predicted .tif files can be visualized in Qgis)
